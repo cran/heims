@@ -17,7 +17,7 @@
 #'
 #' @import data.table
 #' @importFrom magrittr %>%
-#' @importFrom dplyr if_else
+#' @importFrom hutils if_else
 
 #' @rdname element_validation
 #' @export validate_elements

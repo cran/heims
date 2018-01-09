@@ -121,4 +121,11 @@ test_that("#17: Country of birth", {
 
 })
 
+test_that("#19: Languages", {
+  E348_helper <- data.table(E348 = as.integer(c(1201, 1300)))
+  E348_helper_decoded <- decode_heims(E348_helper)
+  expect_equal(E348_helper_decoded[["Language_home_group"]],
+               c("English", "N_Europe"))
+})
+
 

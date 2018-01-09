@@ -5,10 +5,15 @@
 #' @return A \code{data.table} with appropriate attributes.
 #' @export
 
-read_heims_fst <- function(filename){
+read_heims_fst <- function(filename) {
   file <- gsub("^.*((enrol)|(completions)|(course)|(load)).*$", "\\1", filename)
 
-  out <- fst::read.fst(filename, as.data.table = TRUE)
+  if (identical(utils::packageVersion("fst"),
+                package_version("0.7.2"))) {
+    out <- fst::read.fst(filename, as.data.table = TRUE)
+  } else {
+    out <- fst::read_fst(filename, as.data.table = TRUE)
+  }
 
   noms <- names(out)
 
@@ -17,29 +22,39 @@ read_heims_fst <- function(filename){
   }
 
   Course_commencement_date <- NULL
-  if ("Course_commencement_date" %in% noms) {
+  is_Date <- function(v) {
+    if (is.character(v)) {
+      v <- .subset2(out, v)
+    }
+    inherits(v, "Date") || identical("Date", class(v))
+  }
+
+  if ("Course_commencement_date" %chin% noms &&
+      !is_Date("Course_commencement_date")) {
     setattr(out$Course_commencement_date, "class", "Date")
     out[, "Course_commencement_year" := year(Course_commencement_date)]
   }
 
   Course_start_date <- NULL
-  if ("Course_start_date" %in% noms) {
+  if ("Course_start_date" %chin% noms &&
+      !is_Date("Course_start_date")) {
     setattr(out$Course_start_date, "class", "Date")
     out[, "Cohort" := year(Course_start_date)]
   }
 
   Census_date <- NULL
-  if ("Census_date" %in% noms) {
+  if ("Census_date" %in% noms &&
+      !is_Date("Census_date")) {
     setattr(out$Census_date, "class", "Date")
     out[, "Semester" := (month(Census_date) - 1L) %/% 6 + 1L]
   }
 
-  if ("DOB" %in% noms) {
+  if ("DOB" %in% noms && !is_Date("DOB")) {
     setattr(out$DOB, "class", "Date")
   }
 
   major_id <- paste0(file, "_row_id")
-  if (major_id %in% noms) {
+  if (major_id %in% noms && !haskey(out)) {
     setkeyv(out, major_id)
   }
 

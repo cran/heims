@@ -64,11 +64,11 @@ and <- function(...) magrittr::and(...)
 
 #' @rdname utilities
 #' @export if_else
-if_else <- function(...) dplyr::if_else(...)
+if_else <- function(...) hutils::if_else(...)
 
 #' @rdname utilities
 #' @export coalesce
-coalesce <- function(...) dplyr::coalesce(...)
+coalesce <- function(...) hutils::coalesce(...)
 
 #' @rdname utilities
 #' @export %fin%
