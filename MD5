@@ -1,4 +1,4 @@
-df580e887b74f1197a1c63217b11b19e *DESCRIPTION
+95d9dcc1fc12de5378356632b10af269 *DESCRIPTION
 a8dd3b924962432be68957f4b8871f90 *NAMESPACE
 b10483a87695d5ff9192b8b42d70f02d *R/browse_elements.R
 2d5f41febde1936515586e97db0b5cb4 *R/data-decoders.R
@@ -7,7 +7,7 @@ b10483a87695d5ff9192b8b42d70f02d *R/browse_elements.R
 22369c19d6a11581c22c84d8159945b0 *R/first_levels.R
 0e4b76ba0fdee09571892f00d8547e17 *R/fread_heims.R
 5697cccbae00272413114d90e32dfd87 *R/heims_data_dict.R
-caa8a1da5d08df075d98345c03bcfca1 *R/read_heims_fst.R
+b5f9baed073c30bd6154f1d48b439871 *R/read_heims_fst.R
 4863a27bb37080d12164a33f757d005e *R/relevel_heims.R
 63f93fb5f4670de8ecb81c36bb33d7a6 *R/rename_heims.R
 8e83f7a14175caf787d6608ae09b2788 *R/utils.R
@@ -58,13 +58,13 @@ bc9db31e3ff8763ada7136492bee988d *man/heims_data_dict.Rd
 da6ab504a9f08fccbfff01a10dcd44b8 *man/read_heims_fst.Rd
 3257e9e5bcde302f900bf1a0f4afe7f7 *man/relevel_heims.Rd
 57f4407977509590d31cd82307011609 *man/utilities.Rd
-afb57abeebf50f82ff13d2153838cbd4 *tests/testthat.R
+b15f5f844bcccdf4809019c39bb581a3 *tests/testthat.R
 2f36bfdb8092b280fefa1dd6d07bad0a *tests/testthat/test_TableA.R
 7b176a767eb0491e6c3e114a7e0d787c *tests/testthat/test_browse_elements.R
 4b0930ddfcbfaf6b714c7fb257c174d6 *tests/testthat/test_decode_heims.R
 4c13a80ae590cecb62b60d7326a3280e *tests/testthat/test_dictionary_format.R
 efc3f8376a298b45b89ba98d72ad1778 *tests/testthat/test_element2name.R
-f8c69ff650535ce23a0fb130890e1107 *tests/testthat/test_read_heims_fst.R
+704a153327bd924632232d58eb3c4855 *tests/testthat/test_read_heims_fst.R
 9a8413ac80f85ece84f8a42e0b168208 *tests/testthat/test_relevel_heims.R
 3e22922294544f2b8a64944b352fdc2b *tests/testthat/test_utils.R
 8d195ad17a3b46b3bc2372f43069e490 *tests/testthat/test_validate_elements.R

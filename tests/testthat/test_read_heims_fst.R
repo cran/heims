@@ -2,6 +2,7 @@ context("read_heims_fst")
 
 test_that("Correctly reads decoded enrol file", {
   skip_if_not(file.exists("~/Students/2011/enrol2011.csv"))
+  skip_if_not_installed("fst")
   enrol2011 <- fread_heims("~/Students/2011/enrol2011.csv")
   enrol2011_decoded <- decode_heims(enrol2011)
   tempf <- tempfile(fileext = ".fst")
@@ -14,6 +15,7 @@ test_that("Correctly reads decoded enrol file", {
 
 test_that("Correctly reads decoded load file", {
   skip_if_not(file.exists("~/Students/2011/load2011.csv"))
+  skip_if_not_installed("fst")
   load2011 <- fread_heims("~/Students/2011/load2011.csv")
   load2011_decoded <- decode_heims(load2011)
   tempfile(fileext = ".fst")
@@ -42,6 +44,7 @@ test_that("Correctly reads decoded load file", {
 })
 
 test_that("Correctly reads decoded course and completions files", {
+  skip_if_not_installed("fst")
   skip_if_not(file.exists("~/Students/2011/course2011.csv"))
   course2011 <- fread_heims("~/Students/2011/course2011.csv")
   # Required for test of major_row_id

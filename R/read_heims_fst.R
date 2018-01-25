@@ -8,11 +8,15 @@
 read_heims_fst <- function(filename) {
   file <- gsub("^.*((enrol)|(completions)|(course)|(load)).*$", "\\1", filename)
 
-  if (identical(utils::packageVersion("fst"),
-                package_version("0.7.2"))) {
-    out <- fst::read.fst(filename, as.data.table = TRUE)
+  if (requireNamespace("fst", quietly = TRUE)) {
+    if (identical(utils::packageVersion("fst"),
+                  package_version("0.7.2"))) {
+      out <- fst::read.fst(filename, as.data.table = TRUE)
+    } else {
+      out <- fst::read_fst(filename, as.data.table = TRUE)
+    }
   } else {
-    out <- fst::read_fst(filename, as.data.table = TRUE)
+    out <- fread(filename)
   }
 
   noms <- names(out)
